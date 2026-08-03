@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEGA FOOTCARE | Luxury Wholesale & Retail Footwear Destination</title>
+    <title>MEGA FOOTCARE | Premier Footwear Wholesaler & Retailer in Katihar</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-black: #000000;
-            --bg-card: #0D0D0D;
-            --bg-card-hover: #171717;
-            --gold-primary: #D4AF37;
-            --gold-glow: #FFD700;
-            --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-            --text-light: #F5F5F7;
-            --text-dim: #A1A1AA;
-            --border-gold: rgba(212, 175, 55, 0.25);
-            --border-subtle: #1F1F1F;
-            --radius-lg: 18px;
-            --radius-sm: 10px;
-            --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+            --bg-white: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --navy-primary: #0F172A;
+            --navy-secondary: #1E293B;
+            --red-accent: #DC2626;
+            --red-hover: #B91C1C;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --border-subtle: #E2E8F0;
+            --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+            --radius-lg: 16px;
+            --radius-sm: 8px;
         }
 
         * {
@@ -32,16 +31,16 @@
         }
 
         body {
-            background-color: var(--bg-black);
-            color: var(--text-light);
+            background-color: var(--bg-white);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Top Bar */
         .top-bar {
-            background-color: #050505;
-            color: var(--text-dim);
+            background-color: var(--navy-primary);
+            color: #CBD5E1;
             padding: 10px 5%;
             font-size: 0.85rem;
             display: flex;
@@ -49,7 +48,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
-            border-bottom: 1px solid var(--border-subtle);
+            border-bottom: 2px solid var(--red-accent);
         }
 
         .top-bar-info span {
@@ -57,19 +56,19 @@
         }
 
         .top-bar-info i {
-            color: var(--gold-primary);
+            color: var(--red-accent);
             margin-right: 6px;
         }
 
         .top-bar-info a {
-            color: var(--text-light);
+            color: #FFFFFF;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .top-bar-info a:hover {
-            color: var(--gold-primary);
+            color: var(--red-accent);
         }
 
         .status-off {
@@ -79,13 +78,13 @@
 
         /* Header & Nav */
         header {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.9);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--border-gold);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .navbar {
@@ -100,7 +99,7 @@
         .logo {
             font-size: 1.9rem;
             font-weight: 800;
-            color: var(--text-light);
+            color: var(--navy-primary);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -109,9 +108,7 @@
         }
 
         .logo span {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--red-accent);
         }
 
         .nav-links {
@@ -123,41 +120,41 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dim);
+            color: var(--navy-secondary);
             font-weight: 600;
             font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--gold-primary);
+            color: var(--red-accent);
         }
 
         .btn-contact {
-            background: var(--gold-gradient);
-            color: #000000 !important;
+            background: var(--red-accent);
+            color: #FFFFFF !important;
             padding: 12px 28px;
             border-radius: 30px;
-            font-weight: 800;
-            box-shadow: var(--shadow-gold);
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
             transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .btn-contact:hover {
+            background: var(--red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            background: radial-gradient(circle at 50% 30%, #1A1810 0%, #000000 70%);
-            color: var(--text-light);
+            background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-secondary) 100%);
+            color: #FFFFFF;
             padding: 110px 5% 120px;
             text-align: center;
             position: relative;
-            border-bottom: 1px solid var(--border-subtle);
         }
 
         .hero-content {
@@ -166,9 +163,9 @@
         }
 
         .badge {
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold-primary);
-            border: 1px solid var(--border-gold);
+            background: rgba(220, 38, 38, 0.15);
+            color: #FCA5A5;
+            border: 1px solid rgba(220, 38, 38, 0.4);
             padding: 8px 22px;
             border-radius: 30px;
             font-size: 0.85rem;
@@ -188,14 +185,12 @@
         }
 
         .hero h1 span {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--red-accent);
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: var(--text-dim);
+            color: #94A3B8;
             margin-bottom: 40px;
             font-weight: 300;
         }
@@ -208,37 +203,39 @@
         }
 
         .btn-main {
-            background: var(--gold-gradient);
-            color: #000000;
+            background: var(--red-accent);
+            color: #FFFFFF;
             padding: 16px 38px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 800;
             font-size: 1rem;
-            box-shadow: var(--shadow-gold);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.35);
             transition: all 0.3s;
         }
 
         .btn-main:hover {
+            background: var(--red-hover);
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.45);
         }
 
         .btn-outline {
-            border: 1px solid var(--border-gold);
-            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #FFFFFF;
             padding: 16px 38px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s;
-            background: var(--bg-card);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .btn-outline:hover {
-            border-color: var(--gold-primary);
-            color: var(--gold-primary);
+            border-color: #FFFFFF;
+            background: #FFFFFF;
+            color: var(--navy-primary);
             transform: translateY(-3px);
         }
 
@@ -256,18 +253,18 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            color: var(--text-light);
+            color: var(--navy-primary);
             margin-bottom: 12px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
         .section-header p {
-            color: var(--text-dim);
+            color: var(--text-muted);
             font-size: 1.05rem;
         }
 
-        /* Brand Logos Grid with Vector / HD Icons */
+        /* Brand Logos Grid */
         .brand-logos-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -276,12 +273,12 @@
         }
 
         .brand-logo-card {
-            background: var(--bg-card);
+            background: var(--bg-white);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-sm);
             padding: 25px 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow-card);
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
@@ -290,26 +287,24 @@
             gap: 12px;
         }
 
-        .brand-logo-card img {
-            width: 55px;
-            height: 55px;
+        .brand-logo-card svg, .brand-logo-card img {
+            width: 60px;
+            height: 45px;
             object-fit: contain;
-            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
         }
 
         .brand-logo-card span {
             font-weight: 800;
             font-size: 0.95rem;
             letter-spacing: 1px;
-            color: var(--gold-primary);
+            color: var(--navy-primary);
             text-transform: uppercase;
         }
 
         .brand-logo-card:hover {
-            border-color: var(--gold-primary);
+            border-color: var(--red-accent);
             transform: translateY(-6px);
-            background: var(--bg-card-hover);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.12);
         }
 
         /* Features Section */
@@ -320,7 +315,7 @@
         }
 
         .feature-card {
-            background: var(--bg-card);
+            background: var(--bg-light);
             padding: 40px 30px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-subtle);
@@ -330,33 +325,33 @@
 
         .feature-card:hover {
             transform: translateY(-8px);
-            border-color: var(--gold-primary);
-            background: var(--bg-card-hover);
+            border-color: var(--red-accent);
+            background: #FFFFFF;
+            box-shadow: var(--shadow-card);
         }
 
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold-primary);
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--red-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
             margin: 0 auto 25px;
-            border: 1px solid var(--border-gold);
         }
 
         .feature-card h3 {
             font-size: 1.25rem;
             margin-bottom: 12px;
-            color: var(--text-light);
+            color: var(--navy-primary);
             font-weight: 700;
         }
 
         .feature-card p {
-            color: var(--text-dim);
+            color: var(--text-muted);
             font-size: 0.92rem;
         }
 
@@ -368,19 +363,20 @@
         }
 
         .product-card {
-            background: var(--bg-card);
+            background: var(--bg-white);
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: all 0.4s ease;
             border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            border-color: var(--gold-primary);
-            box-shadow: 0 20px 45px rgba(0,0,0,0.9);
+            border-color: var(--red-accent);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
         }
 
         .product-img-box {
@@ -388,7 +384,7 @@
             width: 100%;
             height: 270px;
             overflow: hidden;
-            background-color: #050505;
+            background-color: #F1F5F9;
         }
 
         .product-img-box img {
@@ -396,34 +392,29 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
-            opacity: 0.9;
         }
 
         .product-card:hover .product-img-box img {
             transform: scale(1.08);
-            opacity: 1;
         }
 
         .tag {
             position: absolute;
             top: 15px;
             left: 15px;
-            background: rgba(0,0,0,0.85);
-            color: var(--text-light);
+            background: var(--navy-primary);
+            color: #FFFFFF;
             padding: 6px 14px;
             font-size: 0.75rem;
             font-weight: 700;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border: 1px solid var(--border-subtle);
-            backdrop-filter: blur(5px);
         }
 
-        .tag.gold-tag {
-            background: var(--gold-gradient);
-            color: #000000;
-            border: none;
+        .tag.red-tag {
+            background: var(--red-accent);
+            color: #FFFFFF;
             font-weight: 800;
         }
 
@@ -436,23 +427,23 @@
 
         .product-info h3 {
             font-size: 1.15rem;
-            color: var(--text-light);
+            color: var(--navy-primary);
             margin-bottom: 8px;
             font-weight: 700;
         }
 
         .product-info p {
             font-size: 0.9rem;
-            color: var(--text-dim);
+            color: var(--text-muted);
             margin-bottom: 20px;
             flex-grow: 1;
         }
 
         .btn-inquire {
             display: inline-block;
-            background: transparent;
-            color: var(--gold-primary);
-            border: 1px solid var(--border-gold);
+            background: var(--bg-light);
+            color: var(--navy-primary);
+            border: 1px solid var(--border-subtle);
             padding: 12px 18px;
             border-radius: 25px;
             text-decoration: none;
@@ -464,18 +455,16 @@
         }
 
         .btn-inquire:hover {
-            background: var(--gold-gradient);
-            color: #000000;
-            border-color: transparent;
+            background: var(--red-accent);
+            color: #FFFFFF;
+            border-color: var(--red-accent);
         }
 
         /* Brands Banner Strip */
         .brands-section {
-            background-color: #050505;
-            color: var(--text-light);
+            background-color: var(--navy-primary);
+            color: #FFFFFF;
             padding: 70px 5%;
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
         }
 
         .brands-flex {
@@ -491,13 +480,13 @@
         .brand-item {
             font-size: 0.95rem;
             font-weight: 800;
-            color: var(--gold-primary);
+            color: var(--red-accent);
             letter-spacing: 1.5px;
             text-transform: uppercase;
             padding: 12px 24px;
-            border: 1px solid var(--border-gold);
+            border: 1px solid rgba(220, 38, 38, 0.4);
             border-radius: var(--radius-sm);
-            background: var(--bg-card);
+            background: var(--navy-secondary);
         }
 
         /* Contact Section */
@@ -505,7 +494,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            background: var(--bg-card);
+            background: var(--bg-light);
             padding: 50px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-subtle);
@@ -513,7 +502,7 @@
 
         .contact-info h3 {
             font-size: 1.6rem;
-            color: var(--text-light);
+            color: var(--navy-primary);
             margin-bottom: 25px;
             font-weight: 800;
         }
@@ -527,8 +516,8 @@
 
         .info-item i {
             font-size: 1.3rem;
-            color: var(--gold-primary);
-            background: rgba(212, 175, 55, 0.08);
+            color: var(--red-accent);
+            background: rgba(220, 38, 38, 0.1);
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -536,37 +525,36 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            border: 1px solid var(--border-gold);
         }
 
         .info-item h4 {
             font-size: 1.05rem;
-            color: var(--text-light);
+            color: var(--navy-primary);
             font-weight: 700;
         }
 
         .info-item p, .info-item a {
-            color: var(--text-dim);
+            color: var(--text-muted);
             font-size: 0.95rem;
             text-decoration: none;
         }
 
         .info-item a:hover {
-            color: var(--gold-primary);
+            color: var(--red-accent);
         }
 
         /* Footer */
         footer {
-            background-color: #030303;
-            color: var(--text-dim);
+            background-color: var(--navy-primary);
+            color: #94A3B8;
             text-align: center;
             padding: 35px 5%;
             font-size: 0.9rem;
-            border-top: 1px solid var(--border-subtle);
+            border-top: 1px solid var(--navy-secondary);
         }
 
         footer span {
-            color: var(--gold-primary);
+            color: var(--red-accent);
             font-weight: 700;
         }
 
@@ -642,7 +630,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <span class="badge">Bihar's Premier Wholesale & Retail Hub</span>
-            <h1>Step into <span>Luxury Quality</span> & Superior Comfort</h1>
+            <h1>Step into <span>Superior Quality</span> & Premium Comfort</h1>
             <p>Direct wholesale & retail distributor in Katihar dealing with world-class brands including Nike, Puma, Adidas, Skechers, Calcetto, Columbus, Red Chief & more across Bihar.</p>
             <div class="hero-btns">
                 <a href="#products" class="btn-main">Explore Collection</a>
@@ -651,7 +639,7 @@
         </div>
     </section>
 
-    <!-- Brands Portfolio with Exact SVG Logos -->
+    <!-- Brands Portfolio Section -->
     <section class="section" id="brands" style="padding-bottom: 20px;">
         <div class="section-header">
             <h2>Official Brand Portfolio</h2>
@@ -660,37 +648,37 @@
         <div class="brand-logos-container">
             <!-- NIKE -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/303108/nike-logo.svg" alt="Nike Official Logo">
+                <svg viewBox="0 0 24 24" fill="#0F172A"><path d="M21.707 5.293a1 1 0 00-1.414 0l-12 12a1 1 0 01-1.414 0l-4-4a1 1 0 00-1.414 1.414l4 4a3 3 0 001.414.879 3 3 0 002.121-.293l12-12a1 1 0 000-1.414z"/></svg>
                 <span>NIKE</span>
             </div>
             <!-- PUMA -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/303130/puma-logo.svg" alt="Puma Official Logo">
+                <i class="fas fa-paw" style="font-size: 2.2rem; color: #DC2626;"></i>
                 <span>PUMA</span>
             </div>
             <!-- ADIDAS -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/303126/adidas-4-logo.svg" alt="Adidas Official Logo">
+                <i class="fas fa-layer-group" style="font-size: 2.2rem; color: #0F172A;"></i>
                 <span>ADIDAS</span>
             </div>
             <!-- SKECHERS -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/303259/skechers-logo.svg" alt="Skechers Official Logo">
+                <i class="fas fa-walking" style="font-size: 2.2rem; color: #DC2626;"></i>
                 <span>SKECHERS</span>
             </div>
             <!-- CALCETTO -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/361642/running-shoe.svg" alt="Calcetto Emblem">
+                <i class="fas fa-shoe-prints" style="font-size: 2.2rem; color: #0F172A;"></i>
                 <span>CALCETTO</span>
             </div>
             <!-- COLUMBUS -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/475143/compass.svg" alt="Columbus Emblem">
+                <i class="fas fa-compass" style="font-size: 2.2rem; color: #DC2626;"></i>
                 <span>COLUMBUS</span>
             </div>
             <!-- RED CHIEF -->
             <div class="brand-logo-card">
-                <img src="https://www.svgrepo.com/show/513309/crown.svg" alt="Red Chief Emblem">
+                <i class="fas fa-crown" style="font-size: 2.2rem; color: #DC2626;"></i>
                 <span>RED CHIEF</span>
             </div>
         </div>
@@ -702,7 +690,7 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-gem"></i></div>
                 <h3>100% Premium Quality</h3>
-                <p>Curated selection of durable, long-lasting footwear designed for high orthopedic comfort and luxury look.</p>
+                <p>Curated selection of durable, long-lasting footwear designed for high orthopedic comfort and premium look.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-crown"></i></div>
@@ -722,17 +710,66 @@
         </div>
     </section>
 
-    <!-- Product Showcase Gallery Section -->
+    <!-- Product Showcase & On-Foot Models Gallery Section -->
     <section class="section" id="products">
         <div class="section-header">
-            <h2>Brand Footwear Showcase</h2>
-            <p>Explore top sneakers, boots, running shoes, and clogs available at wholesale & retail</p>
+            <h2>Brand Footwear & On-Foot Models Gallery</h2>
+            <p>Explore top sneakers, boots, running shoes, and clogs modeled in real life</p>
         </div>
         <div class="gallery-grid">
+            <!-- Model 1 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="tag red-tag">On-Foot Model</span>
+                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600&auto=format&fit=crop&q=80" alt="Model wearing athletic sneakers">
+                </div>
+                <div class="product-info">
+                    <h3>Cobalt Blue Runner (Model Style)</h3>
+                    <p>On-foot look preview of high-performance knitted athletic shoes styled with sports wear.</p>
+                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Cobalt%20Blue%20Runner" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
+                </div>
+            </div>
+            <!-- Model 2 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="tag red-tag">On-Foot Model</span>
+                    <img src="https://images.unsplash.com/photo-1460353581641-37babbab0fa5?w=600&auto=format&fit=crop&q=80" alt="Model wearing lifestyle sneakers">
+                </div>
+                <div class="product-info">
+                    <h3>Urban Lifestyle Sneaker Model</h3>
+                    <p>On-foot style preview of high-demand casual sneakers matching with denim & joggers.</p>
+                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Urban%20Lifestyle%20Sneakers" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
+                </div>
+            </div>
+            <!-- Model 3 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="tag red-tag">On-Foot Model</span>
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80" alt="Model wearing air cushion shoes">
+                </div>
+                <div class="product-info">
+                    <h3>Air Cushion Trainer (Model Edition)</h3>
+                    <p>Breathable mesh sports shoe on-foot preview with active air cushion bounce tech.</p>
+                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Air%20Cushion%20Trainer" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
+                </div>
+            </div>
+            <!-- Model 4 -->
+            <div class="product-card">
+                <div class="product-img-box">
+                    <span class="tag red-tag">On-Foot Model</span>
+                    <img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=600&auto=format&fit=crop&q=80" alt="Model wearing casual sneakers">
+                </div>
+                <div class="product-info">
+                    <h3>Dynamic Flex Street Model</h3>
+                    <p>Flex-sole motion response sneaker modeled on-foot for young trendsetters.</p>
+                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Dynamic%20Flex%20Sneakers" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
+                </div>
+            </div>
+
             <!-- Nike -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <span class="tag gold-tag">Nike</span>
+                    <span class="tag">Nike</span>
                     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80" alt="Nike Speed Sports Shoes">
                 </div>
                 <div class="product-info">
@@ -744,7 +781,7 @@
             <!-- Puma -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <span class="tag gold-tag">Puma</span>
+                    <span class="tag">Puma</span>
                     <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=80" alt="Puma Street Casual Clogs">
                 </div>
                 <div class="product-info">
@@ -756,7 +793,7 @@
             <!-- Adidas -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <span class="tag gold-tag">Adidas</span>
+                    <span class="tag">Adidas</span>
                     <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&auto=format&fit=crop&q=80" alt="Adidas Street Sneakers">
                 </div>
                 <div class="product-info">
@@ -765,46 +802,10 @@
                     <a href="https://wa.me/918102895314?text=Inquiry%20for%20Adidas%20Classic%20Sneakers" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
                 </div>
             </div>
-            <!-- Skechers -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <span class="tag gold-tag">Skechers</span>
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80" alt="Skechers Go Walk Shoes">
-                </div>
-                <div class="product-info">
-                    <h3>Skechers Ultra Walk Comfort</h3>
-                    <p>Engineered memory foam walking shoes designed for zero-fatigue, orthotic support.</p>
-                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Skechers%20Ultra%20Walk" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
-                </div>
-            </div>
-            <!-- Calcetto -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <span class="tag gold-tag">Calcetto</span>
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&auto=format&fit=crop&q=80" alt="Calcetto Sports Shoes">
-                </div>
-                <div class="product-info">
-                    <h3>Calcetto Sport Flex Shoes</h3>
-                    <p>Highly durable, stylish sports sneakers for daily training, outdoor running, and sports.</p>
-                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Calcetto%20Sport%20Flex" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
-                </div>
-            </div>
-            <!-- Columbus -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <span class="tag gold-tag">Columbus</span>
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&auto=format&fit=crop&q=80" alt="Columbus Foam Clogs">
-                </div>
-                <div class="product-info">
-                    <h3>Columbus Cushion Clogs</h3>
-                    <p>Extra cushioned soft foam clogs, ideal for monsoon, daily casual wear, and indoor relaxation.</p>
-                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Columbus%20Cushion%20Clogs" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
-                </div>
-            </div>
             <!-- Red Chief -->
             <div class="product-card">
                 <div class="product-img-box">
-                    <span class="tag gold-tag">Red Chief</span>
+                    <span class="tag">Red Chief</span>
                     <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=600&auto=format&fit=crop&q=80" alt="Red Chief Genuine Leather Boots">
                 </div>
                 <div class="product-info">
@@ -813,25 +814,13 @@
                     <a href="https://wa.me/918102895314?text=Inquiry%20for%20Red%20Chief%20Leather%20Boots" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
                 </div>
             </div>
-            <!-- Model Wear -->
-            <div class="product-card">
-                <div class="product-img-box">
-                    <span class="tag">Model Wear</span>
-                    <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?w=600&auto=format&fit=crop&q=80" alt="Model wearing sports sneakers">
-                </div>
-                <div class="product-info">
-                    <h3>Urban Lifestyle Sneaker Model</h3>
-                    <p>On-foot style preview of high-demand lifestyle sports sneakers matching with denim & joggers.</p>
-                    <a href="https://wa.me/918102895314?text=Inquiry%20for%20Urban%20Lifestyle%20Sneakers" class="btn-inquire" target="_blank">Inquire Wholesale Rate</a>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Brands Strip Banner -->
     <div class="brands-section">
         <div class="section-header" style="margin-bottom: 30px;">
-            <h2 style="color: var(--text-light); font-size: 1.6rem;">Authorised Dealer for Super Brands in Bihar</h2>
+            <h2 style="color: #FFFFFF; font-size: 1.6rem;">Authorised Dealer for Super Brands in Bihar</h2>
         </div>
         <div class="brands-flex">
             <div class="brand-item">NIKE</div>
