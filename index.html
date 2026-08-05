@@ -1,37 +1,645 @@
-<!-- Floating Side Button -->
-<div class="quick-note-toggle" onclick="toggleNoteSidebar()">
-    <i class="fas fa-sticky-note"></i> Leave a Note
-</div>
-
-<!-- Side Drawer Panel -->
-<div class="note-sidebar" id="noteSidebar">
-    <div class="note-sidebar-header">
-        <h3><i class="fas fa-pen-to-square"></i> Send Quick Note</h3>
-        <button class="close-note-btn" onclick="toggleNoteSidebar()">&times;</button>
-    </div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA SHOP | Modern Footwear Store</title>
+    <!-- Font Awesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Direct Email Submission Form via Formspree -->
-    <form action="https://formspree.io/f/rezaajaz111@gmail.com" method="POST">
-        <div class="note-form-group">
-            <label for="senderName">Your Name / Shop Name</label>
-            <input type="text" id="senderName" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="note-form-group">
-            <label for="senderPhone">Mobile Number</label>
-            <input type="tel" id="senderPhone" name="phone" placeholder="Enter mobile number" required>
-        </div>
-        <div class="note-form-group">
-            <label for="noteMessage">Your Note / Requirement</label>
-            <textarea id="noteMessage" name="message" rows="5" placeholder="Write your note or requirement here..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit-note"><i class="fas fa-paper-plane"></i> Send to Email</button>
-    </form>
-</div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-<!-- JavaScript for Sidebar Toggle -->
-<script>
-    function toggleNoteSidebar() {
-        const sidebar = document.getElementById('noteSidebar');
-        sidebar.classList.toggle('active');
-    }
-</script>
+        body {
+            background-color: #f1f2f6;
+            color: #333;
+        }
+
+        /* Flipkart Style Header */
+        header {
+            background-color: #2874f0;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-title {
+            font-size: 22px;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            color: #ffe500;
+            font-weight: 500;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background: #fff;
+            border: none;
+            padding: 10px 16px;
+            color: #2874f0;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-direct-req {
+            background-color: #ff9f00;
+            color: white;
+            padding: 8px 16px;
+            font-weight: 500;
+            border-radius: 2px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn-direct-req:hover {
+            background-color: #f39200;
+        }
+
+        /* Banner Carousel */
+        .banner-container {
+            max-width: 1200px;
+            margin: 15px auto;
+            background: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .banner-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #212121;
+        }
+
+        .models-grid {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .models-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .models-grid::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        .model-card {
+            min-width: 160px;
+            height: 220px;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .model-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .model-card .overlay {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            width: 100%;
+            padding: 10px;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Categories Bar */
+        .categories-bar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .cat-item {
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .cat-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        .cat-item p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Product Grid */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+
+        .section-header {
+            background: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            background: #fff;
+            padding: 15px;
+        }
+
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px;
+            text-align: center;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #212121;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #388e3c;
+            margin-bottom: 10px;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+        }
+
+        .btn-wa {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .btn-mail {
+            background-color: #ea4335;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Custom Inquiry Box */
+        .custom-inquiry {
+            background: #fff;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .custom-inquiry h2 {
+            color: #2874f0;
+            margin-bottom: 10px;
+        }
+
+        .inquiry-form {
+            max-width: 600px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .inquiry-form textarea, .inquiry-form input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .form-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-btns button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            font-size: 14px;
+        }
+
+        .btn-send-wa { background-color: #25D366; }
+        .btn-send-mail { background-color: #ea4335; }
+
+        /* Footer */
+        footer {
+            background-color: #172337;
+            color: #878787;
+            padding: 30px 0;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-col h4 {
+            color: #878787;
+            margin-bottom: 10px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .search-bar {
+                width: 100%;
+                margin: 0;
+            }
+            .categories-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo-section">
+                <span class="logo-title">MEGA SHOP</span>
+                <span class="logo-sub">Explore Footwear Plus</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for shoes, sandals, heels, sneakers...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#custom-order" class="btn-direct-req">
+                    <i class="fa-brands fa-whatsapp"></i> Inquiry Link
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Bar -->
+    <div class="categories-bar">
+        <div class="categories-container">
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=150" alt="Heels">
+                <p>Women Heels</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=150" alt="Sneakers">
+                <p>Sports / Sneakers</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=150" alt="Casual">
+                <p>Casual Shoes</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=150" alt="Sandals">
+                <p>Sandals & Flats</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=150" alt="Boots">
+                <p>Boots</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10 Female Models Banner Section -->
+    <div class="banner-container">
+        <div class="banner-title"><i class="fa fa-star" style="color:#ff9f00"></i> Featured Female Model Collections</div>
+        <div class="models-grid">
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400" alt="Model 1">
+                <div class="overlay">Model Style 1</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400" alt="Model 2">
+                <div class="overlay">Model Style 2</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400" alt="Model 3">
+                <div class="overlay">Model Style 3</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400" alt="Model 4">
+                <div class="overlay">Model Style 4</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400" alt="Model 5">
+                <div class="overlay">Model Style 5</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=400" alt="Model 6">
+                <div class="overlay">Model Style 6</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400" alt="Model 7">
+                <div class="overlay">Model Style 7</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400" alt="Model 8">
+                <div class="overlay">Model Style 8</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400" alt="Model 9">
+                <div class="overlay">Model Style 9</div>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400" alt="Model 10">
+                <div class="overlay">Model Style 10</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Display Section -->
+    <div class="main-container">
+        <div class="section-header">
+            <h2>Trending Footwear</h2>
+            <p style="color: #878787;">Click WhatsApp or Email for instant photo & price delivery</p>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400" alt="Heels">
+                <div class="product-title">Designer Stylish High Heels</div>
+                <div class="product-price">Ask Price on WhatsApp</div>
+                <div class="card-buttons">
+                    <a href="https://wa.me/918102895314?text=Hello%20MEGA%20SHOP,%20mujhe%20Designer%20High%20Heels%20ki%20picture%20aur%20price%20chahiye." target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                    <a href="mailto:rezaajaz111@gmail.com?subject=Inquiry%20for%20High%20Heels&body=Hello%20MEGA%20SHOP,%20mujhe%20is%20footwear%20ki%20details%20bhejiye." class="btn-mail">
+                        <i class="fa-solid fa-envelope"></i> Email Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400" alt="Sneakers">
+                <div class="product-title">Women Casual Sneakers</div>
+                <div class="product-price">Ask Price on WhatsApp</div>
+                <div class="card-buttons">
+                    <a href="https://wa.me/918102895314?text=Hello%20MEGA%20SHOP,%20mujhe%20Women%20Casual%20Sneakers%20ki%20picture%20aur%20price%20chahiye." target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                    <a href="mailto:rezaajaz111@gmail.com?subject=Inquiry%20for%20Sneakers&body=Hello%20MEGA%20SHOP,%20mujhe%20is%20footwear%20ki%20details%20bhejiye." class="btn-mail">
+                        <i class="fa-solid fa-envelope"></i> Email Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400" alt="Sandals">
+                <div class="product-title">Comfort Flat Sandals</div>
+                <div class="product-price">Ask Price on WhatsApp</div>
+                <div class="card-buttons">
+                    <a href="https://wa.me/918102895314?text=Hello%20MEGA%20SHOP,%20mujhe%20Flat%20Sandals%20ki%20picture%20aur%20price%20chahiye." target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                    <a href="mailto:rezaajaz111@gmail.com?subject=Inquiry%20for%20Sandals&body=Hello%20MEGA%20SHOP,%20mujhe%20is%20footwear%20ki%20details%20bhejiye." class="btn-mail">
+                        <i class="fa-solid fa-envelope"></i> Email Inquiry
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=400" alt="Boots">
+                <div class="product-title">Party Wear Ankle Boots</div>
+                <div class="product-price">Ask Price on WhatsApp</div>
+                <div class="card-buttons">
+                    <a href="https://wa.me/918102895314?text=Hello%20MEGA%20SHOP,%20mujhe%20Ankle%20Boots%20ki%20picture%20aur%20price%20chahiye." target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Buy via WhatsApp
+                    </a>
+                    <a href="mailto:rezaajaz111@gmail.com?subject=Inquiry%20for%20Boots&body=Hello%20MEGA%20SHOP,%20mujhe%20is%20footwear%20ki%20details%20bhejiye." class="btn-mail">
+                        <i class="fa-solid fa-envelope"></i> Email Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Footwear Request Section -->
+    <div class="custom-inquiry" id="custom-order">
+        <h2><i class="fa-solid fa-paper-plane"></i> Direct Requirement Link / Order Inquiry</h2>
+        <p>Aapko kaunsa Footwear chahiye? Yahan details likhein, hum aapko WhatsApp par photo aur price bhej denge!</p>
+        
+        <div class="inquiry-form">
+            <input type="text" id="custName" placeholder="Aapka Naam (Your Name)">
+            <input type="text" id="custSize" placeholder="Footwear Size (e.g. 6, 7, 8, 9)">
+            <textarea id="custRequirement" rows="4" placeholder="Footwear Description (e.g. Mujhe Red High Heels chahiye ya White Sneakers chahiye...)"></textarea>
+            
+            <div class="form-btns">
+                <button onclick="sendToWhatsApp()" class="btn-send-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Send on WhatsApp
+                </button>
+                <button onclick="sendToEmail()" class="btn-send-mail">
+                    <i class="fa-solid fa-envelope"></i> Send via Email
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>ABOUT MEGA SHOP</h4>
+                <p>Aapka trusted footwear store. Best quality shoes, heels, and sandals at best rates.</p>
+            </div>
+            <div class="footer-col">
+                <h4>DIRECT CONTACT</h4>
+                <p>WhatsApp: +91 8102895314</p>
+                <p>Email: rezaajaz111@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>FOOTWEAR CATEGORIES</h4>
+                <p>Women Heels</p>
+                <p>Sports Sneakers</p>
+                <p>Casual Sandals</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Messaging -->
+    <script>
+        function sendToWhatsApp() {
+            let name = document.getElementById('custName').value;
+            let size = document.getElementById('custSize').value;
+            let req = document.getElementById('custRequirement').value;
+
+            if(!req) {
+                alert('Kripya batayein aapko kaunsa footwear chahiye!');
+                return;
+            }
+
+            let phone = "918102895314";
+            let message = `*MEGA SHOP - New Inquiry*%0A%0A*Name:* ${name}%0A*Size:* ${size}%0A*Requirement:* ${req}%0A%0APlease send me pictures and price details!`;
+
+            let waUrl = `https://wa.me/${phone}?text=${message}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function sendToEmail() {
+            let name = document.getElementById('custName').value;
+            let size = document.getElementById('custSize').value;
+            let req = document.getElementById('custRequirement').value;
+
+            if(!req) {
+                alert('Kripya batayein aapko kaunsa footwear chahiye!');
+                return;
+            }
+
+            let email = "rezaajaz111@gmail.com";
+            let subject = encodeURIComponent("New Footwear Inquiry - MEGA SHOP");
+            let body = encodeURIComponent(`Name: ${name}\nSize: ${size}\nRequirement: ${req}\n\nPlease send me pictures and price details.`);
+
+            let mailUrl = `mailto:${email}?subject=${subject}&body=${body}`;
+            window.location.href = mailUrl;
+        }
+    </script>
+</body>
+</html>
